@@ -19,6 +19,18 @@ spring:
             preLogger: true
             postLogger: true
       routes:
+        - id: user-service
+          uri: lb://USER-SERVICE
+          predicates:
+            - Path=/user-service/**   # 조건절 같은 기능
+        - id: catalog-service
+          uri: lb://CATALOG-SERVICE
+          predicates:
+            - Path=/catalog-service/**   # 조건절 같은 기능
+        - id: order-service
+          uri: lb://ORDER-SERVICE
+          predicates:
+            - Path=/order-service/**   # 조건절 같은 기능
         - id: fist-service
           uri: lb://MY-FIRST-SERVICE
           predicates:
